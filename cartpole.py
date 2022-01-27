@@ -84,6 +84,8 @@ def q_learning(env, agent):
     testing_totals = []
     history = {'epsilon': [], 'alpha': []}
     for episode in range(800):  # 688 testing trials
+        env.render()
+        print(f"Episode {episode}")
         episode_rewards = 0
         obs = env.reset()
         # If epsilon is less than tolerance, testing begins
@@ -129,6 +131,7 @@ def main():
     # Observation: [horizontal pos, velocity, angle of pole, angular velocity]
     # Rewards: +1 at every step. i.e. goal is to stay alive
     env = gym.make('CartPole-v0')
+
     # Set environment seed
     env.seed(21)
     environment_info(env)
